@@ -1,1 +1,1 @@
-from .probable_date_widget import ProbableDateWidget
+from .probable_date_widget import DateRangeSlider
