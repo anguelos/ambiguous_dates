@@ -1,0 +1,31 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!-- Define the custom complex type for the tag -->
+  <xs:complexType name="ambiguous_date">
+    <xs:sequence>
+      <xs:element name="commentary" type="xs:string" minOccurs="0"/>
+      <xs:choice>
+        <!-- Uniform Distribution -->
+        <xs:sequence>
+          <xs:element name="from" type="xs:decimal"/>
+          <xs:element name="to" type="xs:decimal"/>
+        </xs:sequence>
+        <!-- Normal Distribution -->
+        <xs:sequence>
+          <xs:element name="when" type="xs:decimal"/>
+          <xs:element name="give_or_take" type="xs:decimal" default="0" minOccurs="0"/>
+        </xs:sequence>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the root element that uses the custom type -->
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="customTag" type="CustomTagType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
